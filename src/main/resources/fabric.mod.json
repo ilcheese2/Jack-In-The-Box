@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "jack_in_the_box",
+  "version": "${version}",
+  "name": "Jack In The Box",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/jack_in_the_box/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.ilcheese2.jack_in_the_box.client.JackInTheBoxDataGenerator"
+    ],
+    "client": [
+      "com.ilcheese2.jack_in_the_box.client.JackInTheBoxClient"
+    ],
+    "main": [
+      "com.ilcheese2.jack_in_the_box.JackInTheBox"
+    ]
+  },
+  "mixins": [
+    "jack_in_the_box.mixins.json",
+    {
+      "config": "jack_in_the_box.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

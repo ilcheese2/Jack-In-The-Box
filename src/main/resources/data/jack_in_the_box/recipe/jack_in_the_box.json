@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WAW",
+    "WSW",
+    "WTW"
+  ],
+  "key": {
+    "A": "minecraft:armor_stand",
+    "S": "minecraft:slime_block",
+    "T": "minecraft:trapped_chest",
+    "W": "minecraft:white_wool"
+  },
+  "result": {
+    "id": "jack_in_the_box:jack_in_the_box",
+    "count": 1
+  }
+}
