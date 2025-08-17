@@ -9,6 +9,7 @@ import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
 import software.bernie.geckolib.animatable.processing.AnimationController;
+import software.bernie.geckolib.animation.Animation;
 import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
@@ -17,7 +18,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Consumer;
 
 public class JackInTheBoxBlockItem extends BlockItem implements GeoItem {
-    private static final RawAnimation ANIM = RawAnimation.begin();
+    private static final RawAnimation IDLE_ANIM = RawAnimation.begin().then("closed idle/item model", Animation.LoopType.HOLD_ON_LAST_FRAME);
     public final MutableObject<GeoRenderProvider> renderProviderHolder = new MutableObject<>();
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public JackInTheBoxBlockItem(Block block, Settings settings) {
@@ -27,12 +28,12 @@ public class JackInTheBoxBlockItem extends BlockItem implements GeoItem {
 
     @Override
     public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) {
-        consumer.accept(this.renderProviderHolder.getValue());
+        //consumer.accept(this.renderProviderHolder.getValue());
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>("idle", 0, animTest -> PlayState.STOP));
+        controllers.add(new AnimationController<>("idle", animTest -> animTest.setAndContinue(IDLE_ANIM)));
     }
 
     @Override

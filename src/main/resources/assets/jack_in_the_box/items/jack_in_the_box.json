@@ -1,9 +1,10 @@
 {
   "model": {
     "type": "minecraft:special",
-    "base": "jack_in_the_box:item/jack_in_the_box",
+    "base": "minecraft:item/chest",
     "model": {
-      "type": "geckolib:geckolib"
+      "type": "minecraft:chest",
+      "texture": "minecraft:normal"
     }
   }
 }

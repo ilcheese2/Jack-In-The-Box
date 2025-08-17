@@ -27,8 +27,8 @@ import software.bernie.geckolib.constant.dataticket.DataTicket;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class JackInTheBoxBlockEntity extends BlockEntity implements GeoBlockEntity {
-    protected static final RawAnimation IDLE_ANIM = RawAnimation.begin().then("idle", Animation.LoopType.HOLD_ON_LAST_FRAME);
-    protected static final RawAnimation CHEST_OPENING_ANIM = RawAnimation.begin().then("chest opening", Animation.LoopType.PLAY_ONCE);
+    protected static final RawAnimation IDLE_ANIM = RawAnimation.begin().then("closed idle/item model", Animation.LoopType.HOLD_ON_LAST_FRAME);
+    protected static final RawAnimation CHEST_OPENING_ANIM = RawAnimation.begin().then("chest opening", Animation.LoopType.PLAY_ONCE).then("open idle", Animation.LoopType.PLAY_ONCE);
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public static final DataTicket<JackInTheBoxType> TYPE = DataTicket.create("jack_in_the_box_type", JackInTheBoxType.class);
